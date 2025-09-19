@@ -296,3 +296,23 @@ body {
         display: none !important;
     }
 }
+
+
+
+
+.card {
+    transition: transform .2s ease-in-out;
+}
+
+    .card:hover {
+        transform: translateY(-4px);
+    }
+
+.table thead th {
+    font-weight: 600;
+}
+
+.badge {
+    font-size: 0.9rem;
+    padding: 0.5em 0.75em;
+}

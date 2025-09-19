@@ -3,103 +3,95 @@
     ViewData["Title"] = "Register";
 }
 
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="text-center mb-0">
-                    <i class="bi bi-person-plus"></i> Register
-                </h3>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white text-center">
+                <h4 class="mb-0">
+                    <i class="bi bi-person-plus"></i> Create Your Account
+                </h4>
             </div>
-            <div class="card-body">
-                <form asp-action="Register" method="post">
+
+            <div class="card-body p-4">
+                <form asp-action="Register" method="post" novalidate>
                     <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
+                    <!-- Personal Info -->
                     <h5 class="mb-3 text-primary">Personal Information</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label asp-for="FullName" class="form-label">Full Name</label>
+                            <input asp-for="FullName" class="form-control" placeholder="Your full name" />
+                            <span asp-validation-for="FullName" class="text-danger small"></span>
+                        </div>
 
-                    <div class="row">
                         <div class="col-md-6">
-                            <div class="mb-3">
-                                <label asp-for="FullName" class="form-label">Full Name</label>
-                                <input asp-for="FullName" class="form-control" placeholder="Enter your full name" />
-                                <span asp-validation-for="FullName" class="text-danger"></span>
-                            </div>
+                            <label asp-for="Email" class="form-label">Email Address</label>
+                            <input asp-for="Email" class="form-control" placeholder="you@example.com" />
+                            <span asp-validation-for="Email" class="text-danger small"></span>
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label asp-for="Email" class="form-label">Email Address</label>
-                                <input asp-for="Email" class="form-control" placeholder="Enter your email address" />
-                                <span asp-validation-for="Email" class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row">
                         <div class="col-md-6">
-                            <div class="mb-3">
-                                <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
-                                <input asp-for="PhoneNumber" class="form-control" placeholder="Enter your phone number" />
-                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                            </div>
+                            <label asp-for="PhoneNumber" class="form-label">Phone Number</label>
+                            <input asp-for="PhoneNumber" class="form-control" placeholder="+92-300-0000000" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
                         </div>
+
                         <div class="col-md-6">
-                            <div class="mb-3">
-                                <label asp-for="NICNumber" class="form-label">NIC Number</label>
-                                <input asp-for="NICNumber" class="form-control" placeholder="Enter your NIC number" />
-                                <span asp-validation-for="NICNumber" class="text-danger"></span>
-                            </div>
+                            <label asp-for="NICNumber" class="form-label">NIC Number</label>
+                            <input asp-for="NICNumber" class="form-control" placeholder="XXXXX-XXXXXXX-X" />
+                            <span asp-validation-for="NICNumber" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-12">
+                            <label asp-for="Address" class="form-label">Address</label>
+                            <textarea asp-for="Address" class="form-control" rows="3" placeholder="Your complete address"></textarea>
+                            <span asp-validation-for="Address" class="text-danger small"></span>
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label asp-for="Address" class="form-label">Address</label>
-                        <textarea asp-for="Address" class="form-control" rows="3" placeholder="Enter your full address"></textarea>
-                        <span asp-validation-for="Address" class="text-danger"></span>
-                    </div>
+                    <hr class="my-4">
 
-                    <hr>
+                    <!-- Account Info -->
                     <h5 class="mb-3 text-primary">Account Information</h5>
-
-                    <div class="mb-3">
-                        <label asp-for="Username" class="form-label">Username</label>
-                        <input asp-for="Username" class="form-control" placeholder="Choose a username" />
-                        <span asp-validation-for="Username" class="text-danger"></span>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label asp-for="Password" class="form-label">Password</label>
-                                <input asp-for="Password" class="form-control" placeholder="Choose a password (min 6 characters)" />
-                                <span asp-validation-for="Password" class="text-danger"></span>
-                            </div>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label asp-for="Username" class="form-label">Username</label>
+                            <input asp-for="Username" class="form-control" placeholder="Choose a username" />
+                            <span asp-validation-for="Username" class="text-danger small"></span>
                         </div>
+
                         <div class="col-md-6">
-                            <div class="mb-3">
-                                <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
-                                <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm your password" />
-                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                            </div>
+                            <label asp-for="Password" class="form-label">Password</label>
+                            <input asp-for="Password" class="form-control" type="password" placeholder="******" />
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+                            <input asp-for="ConfirmPassword" class="form-control" type="password" placeholder="******" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
                         </div>
                     </div>
 
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-success">
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-success btn-lg">
                             <i class="bi bi-person-plus"></i> Register
                         </button>
                     </div>
                 </form>
-                
-                <hr>
+
+                <hr class="mt-4" />
                 <div class="text-center">
-                    <p class="mb-0">Already have an account? 
-                        <a href="@Url.Action("Login", "Account")" class="text-decoration-none">Login here</a>
+                    <p class="mb-0">
+                        Already have an account?
+                        <a href="@Url.Action("Login", "Account")" class="text-decoration-none text-primary fw-semibold">Login here</a>
                     </p>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div></div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
